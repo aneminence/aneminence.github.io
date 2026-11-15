@@ -36,7 +36,7 @@ python -m http.server 8000 --bind 127.0.0.1 --directory _site
 
 新作品自动生成图片卡片，筛选计数自动更新。收纳概念保留一个 CSS 视觉模板，其余使用数据中的图片。图片需授权，优先 SVG / WebP。概念、原型、设计评审和已发布项目必须区别标注。
 
-**CMTS**：当前为介绍站开发预览，Labs 条目 id 为 `cmts`，外链明确标为「查看 CMTS 项目源码」。介绍站有正式公网 URL 后，修改该项 url、linkLabel、description、status 即可。不要发布 localhost / 127.0.0.1 预览链接。本网站的改动不涉及 CMTS 项目仓库。
+**CMTS**：介绍站已上线：https://aneminence.github.io/cmts-website/zh/ 。Labs 条目 id 为 `cmts`，入口为「访问 CMTS 网站」，封面为公网界面。硬件图片仍标注为概念展示；后续更新修改该项 url、linkLabel、description、status 和 image 即可。不要发布 localhost / 127.0.0.1 预览链接。本网站的改动不涉及 CMTS 项目仓库。
 
 ## 品牌与字体
 

@@ -32,13 +32,13 @@ const projects = [
     "type": "LABS / DIGITAL EXPERIENCE",
     "title": "CMTS Product Website",
     "subtitle": "车辆测试系统的数字展示窗口",
-    "description": "为 Chassis Master Test Suite 构建产品介绍与资源入口，连接桌面分析、移动采集与硬件方案。封面为正在开发的介绍站预览；介绍站尚未公开发布，页面中的硬件形象为概念展示。当前外链指向已公开的 CMTS 主项目源码，介绍站上线后再更新访问入口。",
+    "description": "为 Chassis Master Test Suite 构建产品介绍与资源入口，连接桌面分析、移动采集与硬件方案。介绍站已公开上线并持续更新，提供软件、硬件方案及资源导航。封面为当前网站界面；其中硬件形象为产品概念展示，非最终外观与配置。",
     "field": "Web Design / Software & Engineering",
-    "status": "介绍站开发中 / 尚未发布",
-    "image": "assets/projects/cmts-preview.webp",
-    "alt": "CMTS 介绍网站开发预览，黑金界面展示车辆测试软件和硬件概念",
-    "url": "https://github.com/aneminence/Chassis-Master-Test-Suite",
-    "linkLabel": "查看 CMTS 项目源码"
+    "status": "介绍站已上线 / 持续更新",
+    "image": "assets/projects/cmts-website.webp",
+    "alt": "CMTS 已上线介绍网站，黑金界面展示车辆测试软件和硬件概念",
+    "url": "https://aneminence.github.io/cmts-website/zh/",
+    "linkLabel": "访问 CMTS 网站"
   },
   {
     "id": "hardware",

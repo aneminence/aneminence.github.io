@@ -33,9 +33,9 @@ def check(browser,engine,width,height):
   page.keyboard.press('Shift+Tab');assert page.evaluate('document.activeElement.id')=='modal-return'
   page.keyboard.press('Tab');assert page.evaluate('document.activeElement.id')=='modal-close'
   if ident=='cmts':
-   assert '开发中' in page.locator('#modal-status').inner_text()
-   assert page.locator('#modal-link').get_attribute('href')=='https://github.com/aneminence/Chassis-Master-Test-Suite'
-   assert '源码' in page.locator('#modal-link').inner_text()
+   assert '已上线' in page.locator('#modal-status').inner_text()
+   assert page.locator('#modal-link').get_attribute('href')=='https://aneminence.github.io/cmts-website/zh/'
+   assert '访问 CMTS 网站' in page.locator('#modal-link').inner_text()
   if ident=='hardware':assert page.locator('#modal-link').is_hidden()
   page.keyboard.press('Escape');assert page.locator('#project-modal').is_hidden()
   assert page.evaluate('document.activeElement.dataset.project')==ident
