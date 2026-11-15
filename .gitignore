@@ -1,0 +1,8 @@
+_site/
+node_modules/
+.env
+.env.*
+*.log
+test-results/
+.DS_Store
+Thumbs.db
