@@ -53,3 +53,10 @@ AE 标志及品牌、服装、山岳图来自用户提供的源码 ZIP；原包�
 检查 320/390/768/1440 像素布局、三类筛选、详情图片、Tab 焦点循环和恢复、Escape、移动导航、内部锚点、资源请求和控制台错误。尊重减少动态效果偏好，跑马灯静止以避免持续运动干扰。
 
 GitHub 官方部署文档：https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+
+## 首屏与浏览器配色
+
+首屏使用用户提供的雪山品牌海报，保留完整构图、原字标与标语，仅转为两种尺寸的 WebP；不裁切 Logo，不添加生成式改绘。`brand-hero` 样式控制海报与下方文字/行动区域。
+
+`<meta name="color-scheme" content="only light">` 与 `:root { color-scheme: only light; }` 声明固定的品牌配色，避免支持该标准的浏览器自动暗化。页面仍有设计指定的黑白区块。不会禁用操作系统的强制高对比度辅助功能；第三方暗黑扩展或用户样式仍可能覆盖页面。
+参考：https://developer.chrome.com/blog/auto-dark-theme

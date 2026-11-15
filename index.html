@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="color-scheme" content="only light" />
   <meta name="theme-color" content="#151719" />
   <meta name="description" content="aneminence — 独立创意与科技厂牌。Studio / Labs / Craft，融合设计、技术与实体制作。" />
   <meta property="og:title" content="aneminence — ASPIRE TO EMINENCE" />
@@ -16,6 +17,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <title>aneminence — Independent Creative & Technology Label</title>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="preload" as="image" href="assets/summit-brand.webp" imagesrcset="assets/summit-brand-960.webp 960w, assets/summit-brand.webp 1672w" imagesizes="(max-width: 760px) 100vw, 1200px" />
   <link rel="stylesheet" href="styles.css" />
   <script src="projects.js" defer></script>
   <script src="main.js" defer></script>
@@ -41,22 +43,19 @@
 
   <main id="main">
 <noscript><p class="noscript-note">作品筛选和详情需要启用 JavaScript。品牌介绍与联系入口仍可浏览。</p></noscript>
-    <section class="hero" id="top" aria-labelledby="hero-heading">
-      <div class="hero-image" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-      <div class="hero-noise" aria-hidden="true"></div>
-      <img class="hero-symbol" src="assets/ae-mark-white.png" alt="" aria-hidden="true" />
-      <div class="hero-kicker frame-width"><span class="line-mark"></span> INDEPENDENT CREATIVE & TECHNOLOGY LABEL <span class="hero-issue">/ 2026 — 01</span></div>
-      <div class="hero-center frame-width">
-        <div class="hero-index" aria-hidden="true">A / E <span>001</span></div>
-        <h1 id="hero-heading">IDEAS <em>INTO</em><br><span>REALITY<span class="punct">.</span></span></h1>
-        <div class="hero-subline"><span class="tiny-red-line"></span><p>迎风而立 · 坚定前行 · 追求卓越<br>以设计构想未来，以工程实现创造。</p></div>
-        <div class="hero-actions"><a class="button button-solid" href="#works">探索作品 <span aria-hidden="true">↗</span></a><a class="button button-ghost" href="#divisions">认识三个领域 <span aria-hidden="true">↘</span></a></div>
+    <section class="brand-hero" id="top" aria-labelledby="hero-heading">
+      <h1 id="hero-heading" class="sr-only">aneminence — ASPIRE TO EMINENCE</h1>
+      <div class="brand-hero-caption frame-width"><span><i aria-hidden="true"></i> INDEPENDENT CREATIVE & TECHNOLOGY LABEL</span><span class="brand-hero-edition">STUDIO / LABS / CRAFT</span></div>
+      <div class="brand-hero-stage">
+        <img class="brand-hero-art" src="assets/summit-brand.webp" srcset="assets/summit-brand-960.webp 960w, assets/summit-brand.webp 1672w" sizes="(max-width: 760px) 100vw, 1200px" width="1672" height="941" fetchpriority="high" alt="金色晨光照亮风雪中的山峰，aneminence 品牌字样与 ASPIRE TO EMINENCE 标语" />
       </div>
-      <div class="hero-bottom frame-width"><div><span class="hero-bottom-label">OUR PRINCIPLE</span><span>ASPIRE TO EMINENCE</span></div><div class="hero-scroll">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div><div class="coordinates">40° / NEW PERSPECTIVES</div></div>
+      <div class="brand-hero-footer frame-width">
+        <div class="brand-hero-principle"><p>迎风而立<span>·</span>坚定前行<span>·</span>追求卓越</p><span>以设计构想未来，以工程实现创造。</span></div>
+        <div class="brand-hero-actions"><a class="button button-solid" href="#works">探索作品 <span aria-hidden="true">↗</span></a><a class="brand-hero-link" href="#divisions">认识三个领域 <span aria-hidden="true">↘</span></a></div>
+      </div>
     </section>
 
-    <div class="marquee" aria-label="核心能力：设计、创新、制作"><div class="marquee-track"><span>DESIGN <b>✳</b> INNOVATE <b>✳</b> MAKE <b>✳</b> ANEMINENCE <b>✳</b></span><span aria-hidden="true">DESIGN <b>✳</b> INNOVATE <b>✳</b> MAKE <b>✳</b> ANEMINENCE <b>✳</b></span></div></div>
+    <div class="brand-index frame-width" aria-label="三个领域，一种创造精神"><span>01 <b>DESIGN</b></span><span>02 <b>INNOVATE</b></span><span>03 <b>MAKE</b></span><span class="brand-index-note">THREE FIELDS. ONE SPIRIT.</span></div>
 
     <section class="manifesto section-pad" id="about">
       <div class="frame-width">
