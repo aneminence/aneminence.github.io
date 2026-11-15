@@ -56,7 +56,9 @@ GitHub 官方部署文档：https://docs.github.com/en/pages/getting-started-wit
 
 ## 首屏与浏览器配色
 
-首屏使用用户提供的雪山品牌海报，保留完整构图、原字标与标语，仅转为两种尺寸的 WebP；不裁切 Logo，不添加生成式改绘。`brand-hero` 样式控制海报与下方文字/行动区域。
+首屏保留原版 IDEAS INTO REALITY 排版、灰色山景、网格、AE 标志和红色点缀。参考图只用于山脊微光与风雪层次的轻量 CSS 氛围，不将整张海报作为网页。
 
 `<meta name="color-scheme" content="only light">` 与 `:root { color-scheme: only light; }` 声明固定的品牌配色，避免支持该标准的浏览器自动暗化。页面仍有设计指定的黑白区块。不会禁用操作系统的强制高对比度辅助功能；第三方暗黑扩展或用户样式仍可能覆盖页面。
 参考：https://developer.chrome.com/blog/auto-dark-theme
+
+部署时 `python scripts/build.py` 将 CSS/JS 按内容摘要命名并重写输出 HTML 的引用，避免新页面误用旧缓存样式。源码保持原文件名便于维护；`_site/` 为忽略的发布产物。
