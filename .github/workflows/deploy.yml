@@ -26,9 +26,13 @@ jobs:
           node --check projects.js
       - uses: actions/configure-pages@v5
       - name: Prepare public files only
-        run: python3 scripts/build.py
+        run: |
+          python3 scripts/build.py
+          python3 scripts/check_site.py
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
       - uses: actions/deploy-pages@v4
         id: deployment
+      - name: Verify the public HTTPS release
+        run: python3 scripts/check_site.py --url "${{ steps.deployment.outputs.page_url }}"

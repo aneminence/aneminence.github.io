@@ -1,0 +1,18 @@
+{
+  "license": "SIL OFL 1.1; licenses retained alongside fonts",
+  "source": "aneminence VI 2.0 licensed font files; Google Fonts official source",
+  "subsets": [
+    {
+      "original": "Inter.ttf",
+      "output": "inter-latin.woff2",
+      "bytes": 65640,
+      "sourceSHA256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031"
+    },
+    {
+      "original": "NotoSansSC.ttf",
+      "output": "noto-sans-sc-site.woff2",
+      "bytes": 117316,
+      "sourceSHA256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da"
+    }
+  ]
+}

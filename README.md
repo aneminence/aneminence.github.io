@@ -2,63 +2,73 @@
 
 Independent Creative & Technology Label — ASPIRE TO EMINENCE
 
-迎风而立 · 坚定前行 · 追求卓越
+官网：[aneminence.github.io](https://aneminence.github.io/) · [GitHub](https://github.com/aneminence)
 
-官网：https://aneminence.github.io/ | 联系：https://github.com/aneminence
+轻量 HTML / CSS / JavaScript 网站，无运行时依赖。维护位置为 `D:\ANEMINENCE\aneminence.github.io`；VI 源项目位于同级 `aneminence-brand`。Studio / Labs / Craft 为平级业务，Works 是作品集栏目。
 
-基于用户提供的 V1.0 源码完善，保留 AE 原标志与主要视觉交互。纯 HTML / CSS / JavaScript，无运行时依赖或构建工具。Studio、Labs、Craft 为平级业务，Works 为作品集。
-
-## 目录与本地运行
-
-- index.html：页面结构与原版作品视觉模板。
-- styles.css：品牌变量和响应式样式。
-- projects.js：作品内容唯一数据源。
-- main.js：渲染、筛选、详情、移动导航。
-- assets/：原品牌素材、WebP 图片及概念示意图。
-- .github/workflows/deploy.yml：语法检查及 Pages 自动部署。
-
-在本目录执行 `python -m http.server 8000 --bind 127.0.0.1`，访问 http://127.0.0.1:8000/ 。无需安装网站依赖。
-
-## 添加或更新作品
-
-编辑 projects.js 数组。每项包含唯一 id、category（studio/labs/craft）、type、title、subtitle、description、field、status、image、alt，可选 url 和 linkLabel。图片放入 assets，推荐 WebP，只使用可信 HTTPS 外链与授权素材。
-
-新增作品自动使用图片卡片，分类及计数自动更新，无需改页面结构。原有四项保留原版视觉模板；如需替换对应卡片图，可移除 index.html 中 visual-ID 模板。概念、研究、原型和已发布项目必须如实标注，未经确认不可描述为已完成或在售商业产品。
-
-## 品牌变量
-
-styles.css 的 :root 定义 --warm: #F7F7F5（雪域白）、--black: #151719（石墨黑）、--red: #C8102E（Studio）、--blue: #315F83（Labs）、--steel: #77838B（Craft）。母品牌统一黑白，红蓝少量辅助；不得改造 AE 标志轮廓。
-
-## 自动部署及更新
-
-仓库：aneminence/aneminence.github.io，默认分支 main。
-Settings → Pages → Build and deployment → Source 选择 GitHub Actions。
-推送 main 自动检查并部署；可在 Actions → Deploy website to GitHub Pages → Run workflow 手动触发。
+## 本地预览
 
 ```sh
-git add index.html styles.css main.js projects.js assets
+python scripts/build.py
+python scripts/check_site.py
+python -m http.server 8000 --bind 127.0.0.1 --directory _site
+```
+
+访问 http://127.0.0.1:8000/ 。源码也可直接通过静态服务器预览。`_site` 是自动生成且忽略的发布目录，只包含页面、资产和 robots/sitemap，不包含工具、报告或完整 VI 工程。
+
+## 目录
+
+- `index.html`：页面结构；保留原 IDEAS INTO REALITY、灰色山体与网格构图。
+- `styles.css`：品牌变量、字体、响应式和交互状态。
+- `projects.js`：作品内容唯一来源。
+- `main.js`：作品生成、分类、弹窗、移动导航与图片失败回退。
+- `assets/brand`：来自 VI 的原几何 SVG 与色彩记录。
+- `assets/projects`：当前作品展示，均按真实状态标注。
+- `assets/fonts`：本地 WOFF2 子集、来源记录与 OFL 授权。
+- `scripts/build.py`：输出带内容摘要的 CSS/JS 与页面版本标识。
+- `scripts/check_site.py`：本地资源/锚点检查，或实际 HTTPS 发布检查。
+- `scripts/browser_check.py`：可选开发测试，覆盖 Edge、Firefox、WebKit。
+- `.github/workflows/deploy.yml`：语法检查、打包、发布、公共页面与资源验证。
+
+## 更新作品
+
+在 `projects.js` 增加或修改条目，必需字段为 id、category、type、title、subtitle、description、field、status、image、alt；外链使用可选 url 和 linkLabel。id 必须唯一，category 只能是 studio / labs / craft。
+
+新作品自动生成图片卡片，筛选计数自动更新。收纳概念保留一个 CSS 视觉模板，其余使用数据中的图片。图片需授权，优先 SVG / WebP。概念、原型、设计评审和已发布项目必须区别标注。
+
+**CMTS**：当前为介绍站开发预览，Labs 条目 id 为 `cmts`，外链明确标为「查看 CMTS 项目源码」。介绍站有正式公网 URL 后，修改该项 url、linkLabel、description、status 即可。不要发布 localhost / 127.0.0.1 预览链接。本网站的改动不涉及 CMTS 项目仓库。
+
+## 品牌与字体
+
+核心色：雪域白 #F7F7F5、石墨黑 #151719、Studio 性能红 #C8102E、Labs 冷钢蓝 #315F83；Craft 辅助灰 #737B83。灰色正文使用可读的 #59646B。正式 Logo 使用 V5 原路径，禁止以普通字体重新排字或改造轮廓。
+
+字体为 Inter / Noto Sans SC，网页使用 OFL 授权的本地子集，完整许可证保存在 assets/fonts。新增中文内容后，重新执行以下可选维护步骤；未收录字形会退回系统中文字体，不会丢失文字：
+
+```sh
+python -m pip install -r requirements-dev.txt
+python scripts/prepare_fonts.py --brand ../aneminence-brand
+```
+
+浏览器测试同样使用开发依赖。Windows 默认使用已安装 Edge，Firefox/WebKit 需要 `python -m playwright install firefox webkit`。运行 `python scripts/browser_check.py --report ../website-reports`。测试产物放在仓库外，不上传到官网。
+
+## 自动发布与404排查
+
+推送 main 后 GitHub Actions 自动检查并发布。也可在 Actions → Deploy website to GitHub Pages → Run workflow 手动发布。
+
+```sh
+git add index.html styles.css projects.js main.js assets scripts .github README.md requirements-dev.txt docs
 git commit -m "Update portfolio"
 git push origin main
 ```
 
-工作流只上传明确列出的公开文件，排除 Git 配置、README、测试报告和缓存。部署后实际检查 HTTPS 页面和资源。
+Settings → Pages → Build and deployment → Source 应为 **GitHub Actions**。默认网站地址为 https://aneminence.github.io/ ，要求仓库名保持 `aneminence.github.io`。
 
-## 素材与内容
+2026-11-15 的404源于仓库改为私有后 Pages 被停用；仓库恢复公开后，已重新启用 Pages 并触发发布。GitHub Free 的 Pages 适用于公开仓库；支持私有仓库的计划见 [GitHub 官方文档](https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages)。改回公开后仍须检查 Pages 是否已启用，不应只等待浏览器刷新。
 
-AE 标志及品牌、服装、山岳图来自用户提供的源码 ZIP；原包说明为既有品牌 VI 图裁切与处理。保留标志位图，仅将展示图片压缩为 WebP，从原标志生成 favicon 和分享图。数据曲线与收纳几何为 SVG/CSS 概念示意，不是真实测量或实物照片。使用系统字体，无第三方字体或外部脚本。不公开私人联系方式，不暗示其他项目的权属。
+部署工作流会校验公共 HTTPS 页面版本与资源。若失败，先看 Actions 日志、仓库可见性和 Pages Source，再检查最新提交是否已发布。
 
-## 验证规范
+## 无障碍与配色
 
-提交前运行 `node --check main.js` 和 `node --check projects.js`。
-检查 320/390/768/1440 像素布局、三类筛选、详情图片、Tab 焦点循环和恢复、Escape、移动导航、内部锚点、资源请求和控制台错误。尊重减少动态效果偏好，跑马灯静止以避免持续运动干扰。
+提供键盘焦点、跳转主内容、移动菜单、弹窗焦点循环与返回、图片替代文本、缺图回退和空态。尊重减少动态效果。`color-scheme: only light` 保留作者指定的黑白区块；不禁用系统高对比度辅助功能，第三方扩展仍可能覆盖样式。
 
-GitHub 官方部署文档：https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
-
-## 首屏与浏览器配色
-
-首屏保留原版 IDEAS INTO REALITY 排版、灰色山景、网格、AE 标志和红色点缀。参考图只用于山脊微光与风雪层次的轻量 CSS 氛围，不将整张海报作为网页。
-
-`<meta name="color-scheme" content="only light">` 与 `:root { color-scheme: only light; }` 声明固定的品牌配色，避免支持该标准的浏览器自动暗化。页面仍有设计指定的黑白区块。不会禁用操作系统的强制高对比度辅助功能；第三方暗黑扩展或用户样式仍可能覆盖页面。
-参考：https://developer.chrome.com/blog/auto-dark-theme
-
-部署时 `python scripts/build.py` 将 CSS/JS 按内容摘要命名并重写输出 HTML 的引用，避免新页面误用旧缓存样式。源码保持原文件名便于维护；`_site/` 为忽略的发布产物。
+本次验证 320 / 390 / 768 / 1440px 布局、三类筛选、六项详情、内链、资源和控制台；使用 Edge、Firefox 与 Playwright WebKit（不等同于所有真实 Safari 设备）。

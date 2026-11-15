@@ -1,0 +1,11 @@
+{
+  "palette": {
+    "snow": "#F7F7F5",
+    "graphite": "#151719",
+    "performanceRed": "#C8102E",
+    "steelBlue": "#315F83",
+    "silver": "#C5C9CE",
+    "industrialGray": "#737B83"
+  },
+  "note": "Editable palette source. Core palette changes require brand owner approval; assets.py regenerates derived color values, contrast, CSS and patterns."
+}
