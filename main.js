@@ -33,7 +33,7 @@ const modal = document.getElementById('project-modal');
 const modalPanel = modal.querySelector('.modal-panel');
 const closeBtn = document.getElementById('modal-close');
 let returnFocus = null;
-function openProject(id){const data=projects.find(p=>p.id===id);if(!data)return;returnFocus=document.activeElement;
+function openProject(id,trigger){const data=projects.find(p=>p.id===id);if(!data)return;returnFocus=trigger||document.activeElement;
  document.getElementById('modal-type').textContent=data.type;
  document.getElementById('modal-title').textContent=data.title;
  document.getElementById('modal-subtitle').textContent=data.subtitle;
@@ -45,7 +45,7 @@ function openProject(id){const data=projects.find(p=>p.id===id);if(!data)return;
  document.querySelector('main').inert=true;document.querySelector('header').inert=true;document.querySelector('footer').inert=true;
  modal.hidden=false;document.body.classList.add('modal-open');closeBtn.focus();}
 function closeProject(){document.querySelector('main').inert=false;document.querySelector('header').inert=false;document.querySelector('footer').inert=false;modal.hidden=true;document.body.classList.remove('modal-open');if(returnFocus&&returnFocus.focus)returnFocus.focus();}
-cards.forEach(card=>card.addEventListener('click',()=>openProject(card.dataset.project)));
+cards.forEach(card=>card.addEventListener('click',()=>openProject(card.dataset.project,card)));
 closeBtn.addEventListener('click',closeProject);
 document.getElementById('modal-return').addEventListener('click',closeProject);
 modal.addEventListener('click',e=>{if(e.target===modal)closeProject()});
@@ -57,3 +57,4 @@ document.addEventListener('keydown',e=>{
 document.getElementById('year').textContent=new Date().getFullYear();
 
 applyFilter("all");
+
